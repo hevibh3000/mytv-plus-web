@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>MyTV+ webOS Clone</title>
+    <link rel="preconnect" href="https://www.mytv-plus.net" crossorigin>
+    <link rel="preconnect" href="https://media.appmytv.com" crossorigin>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="stb-theme">
+    <div id="app">
+        <!-- Header: Logo, Search, Settings -->
+        <header class="top-bar">
+            <div class="header-left">
+                <img src="assets/mytv_logo.png" class="app-logo" alt="myTV+">
+                <div class="search-bar focusable" tabindex="0">
+                    <img src="assets/search.svg" alt="Search">
+                    <span>Search</span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="header-action focusable" tabindex="0">
+                    <img src="assets/settings.svg" alt="Settings">
+                    <span>SETTINGS</span>
+                </div>
+                <div class="header-action focusable" tabindex="0">
+                    <img src="assets/ads.svg" alt="Ads">
+                    <span>REMOVE ADS</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Navigation Tabs -->
+        <nav class="main-tabs">
+            <div class="tab-item focusable active" tabindex="0" data-section="live">TV CHANNELS</div>
+            <div class="tab-item focusable" tabindex="0" data-section="movies">MOVIES</div>
+            <div class="tab-item focusable" tabindex="0" data-section="series">TV SERIES</div>
+            <div class="tab-item focusable" tabindex="0" data-section="favorites">FAVORITES</div>
+        </nav>
+
+        <div class="main-layout">
+            <!-- Sidebar: Categories -->
+            <aside class="sidebar" id="sidebar">
+                <div class="sidebar-buttons">
+                    <div class="side-btn focusable" tabindex="0" data-filter-mode="category">
+                        <img src="assets/categories.svg" alt="">
+                        <span>CATEGORIES</span>
+                    </div>
+                    <div class="side-btn focusable border-bottom" tabindex="0" data-filter-mode="package">
+                        <img src="assets/packages.svg" alt="">
+                        <span>PACKAGES</span>
+                    </div>
+                </div>
+
+                <ul class="category-list" id="category-list">
+                    <li class="cat-item focusable active" tabindex="0">All</li>
+                    <li class="cat-item focusable" tabindex="0">News</li>
+                    <li class="cat-item focusable" tabindex="0">Entertainment</li>
+                    <li class="cat-item focusable" tabindex="0">Movies</li>
+                    <li class="cat-item focusable" tabindex="0">Sports</li>
+                    <li class="cat-item focusable" tabindex="0">Kids</li>
+                </ul>
+            </aside>
+
+            <!-- Content Area -->
+            <main class="content">
+                <div class="grid-container" id="grid-container">
+                    <!-- Cards will be injected here -->
+                </div>
+            </main>
+        </div>
+
+        <!-- Details Overlay (Hidden) -->
+        <div id="details-overlay" class="overlay hidden">
+            <div class="details-card">
+                <div class="details-content">
+                    <img id="detail-img" src="" alt="">
+                    <div class="details-text">
+                        <h1 id="detail-title">Title</h1>
+                        <p id="detail-desc"></p>
+                        <div class="details-actions">
+                            <button class="focusable btn-red" id="play-btn">Play Now</button>
+                            <button class="focusable btn-grey" id="subtitle-btn">Subtitles</button>
+                            <button class="focusable btn-grey" id="fav-btn">Add to Favorites</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="subtitle-overlay" class="overlay hidden">
+            <div class="subtitle-card">
+                <h2>Subtitle Language</h2>
+                <div class="subtitle-actions" id="subtitle-options"></div>
+                <h2 class="subtitle-size-title">Subtitle Size</h2>
+                <div class="subtitle-actions" id="subtitle-size-options"></div>
+            </div>
+        </div>
+
+        <!-- Video Player Overlay (Hidden) -->
+        <div id="player-overlay" class="overlay hidden" tabindex="0">
+            <video id="video-player" autoplay tabindex="-1"></video>
+            <div class="player-hud">
+                <div class="hud-top">
+                    <span id="player-title">Stream Name</span>
+                    <span id="player-time">00:00 / 00:00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="js/utils.js?v=9"></script>
+    <script src="js/app.js?v=20"></script>
+</body>
+
+</html>
